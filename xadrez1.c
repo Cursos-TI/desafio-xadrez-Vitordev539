@@ -1,50 +1,79 @@
 #include <stdio.h>
 
-int main()
-// Movendo o bispo na diagonal superior direita 5 vezes
-{
-    int j = 0;
-    while (j < 5)
-    {
-        printf("cima\n direita\n");
-        j++;
+void moverBispo(int casas){
+    if(casas > 0) 
+        
+        //Chamada recursiva
+        moverBispo(casas - 1);
+    
+}
+//movendo a torre para a direita
+void moverTorre(int casas){
+    if(casas > 0){
+        printf("direita\n");
+        //Chamada recursiva
+        moverTorre(casas - 1);
     }
+}
+void moverRainha(int casas){
+    if(casas > 0){
+        printf("esquerda\n");
+        //Chamada recursiva
+        moverRainha(casas - 1);
+    }
+}
+void moverCavalo(int casas){
+    if(casas > 0)
+        //Chamada recursiva
+        moverCavalo(casas - 1);
+    
+}
+
+
+int main()
+
+{
+    moverBispo (5);
+    printf("Movimento do bispo\n");
+   
+    // Movendo o bispo 5 casas para a diagonal superior direita
+    for (int i = 0; i < 5; i++)
+      for (int j = 0; j < 5; j++)
+    {
+        if(i == j){
+        printf("Cima\n");
+        printf("Direita\n");
+        }
+        
+    }
+    
+
     printf("\n");
 
     // Movendo a torre 5 casas para a direita
-
-    for (int t = 0; t < 5; t++)
-    {
-        printf("Direita\n");
-    }
-
+    printf("Movimento da torre\n");
+    moverTorre(5);
     printf("\n");
 
     // Movendo a rainha 8 vezes para a esquerda
-
-    int i = 0;
-    do
-    {
-        printf("Esquerda\n");
-        i++;
-    } while (i < 8);
-
+    printf("Movimento da rainha\n");
+    moverRainha(8);
     printf("\n");
 
-    //Movendo o cavalo duas vezes para cima e uma vez para a esquerda fromando um L
+    //Movendo o cavalo duas vezes para cima e uma vez para a esquerda formando um L
 
-    int c = 1;
-
-    while (c--)
-    {
-        for (int n = 0; n < 2; n++)
+    moverCavalo(2);
+    printf("Movimento do cavalo\n");
+    for (int i = 0; i < 2; i++)
+        for (int j = 0; j < 1; j++)
         {
-            printf("Cima,"); //imprimindo cima duas vezes)
+            if(i == j){
+                printf("Cima\n");
+                printf("Cima\n");
+                printf("Esquerda\n");
+            }
         }
-        printf("Esquerda"); // imprimindo esquerda uma vez formando o movimento em L
-    }
-
+    
     printf("\n");
-
 
 }
